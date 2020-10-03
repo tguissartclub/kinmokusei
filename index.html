@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>金木犀の陣</title>
+  <script id="text/javascript">
+  window.onhashchange = function() {
+    var hash = location.hash;
+    if (hash === "#home" || hash === "") {
+      var cs = document.getElementById('images').className;
+      document.getElementById('images').removeAttribute('class');
+      document.getElementById(cs).classList.remove("show");
+      document.getElementById(cs).classList.add("hide");
+      document.getElementById('close').classList.remove("show");
+      document.getElementById('close').classList.add("hide");
+    }else {
+      document.querySelector(hash).classList.remove("hide");
+      document.querySelector(hash).classList.add("show")
+      document.querySelector(hash).setAttribute("src","images/"+hash.substr(6)+".jpg")
+      document.getElementById('close').classList.remove("hide");
+      document.getElementById('close').classList.add("show");
+      document.getElementById('images').classList.add(hash.substr(1))
+    }
+  };
+
+  function loadimage(number,number2) {
+
+    console.log(document.getElementById("thumbnails").children[number2].href.slice(-2).replace('e',''));
+    setTimeout(function () {
+        var  asre = document.getElementById('image'+number).naturalHeight / document.getElementById('image'+number).naturalWidth;
+      console.log(asre);
+    }, 20);
+    if (true) {
+
+    }else if (true) {
+
+    }else {
+
+    }
+    document.getElementById("thumbnails").children[number2-1].removeAttribute("onclick");
+  }
+
+  </script>
+  <link rel="stylesheet" href="index.css">
+</head>
+
+<body onscroll="scroll()">
+  <section id="one">
+  </section>
+  <section id="two">
+  </section>
+  <section id="three">
+    <div id="thumbnails">
+    <a><img></a>
+    <a><img></a>
+    <a><img></a>
+    <a><img></a>
+    <a><img></a>
+    <a><img></a>
+    <a><img></a>
+    <a><img></a>
+    <a><img></a>
+    <a><img></a>
+    <a><img></a>
+    <a><img></a>
+    <a><img></a>
+    <a><img></a>
+    <a><img></a>
+    <a><img></a>
+    <a><img></a>
+    <a><img></a>
+    <a><img></a>
+    <a><img></a>
+    <a><img></a>
+    <a><img></a>
+    <a><img></a>
+    <a><img></a>
+    <a><img></a>
+    <a><img></a>
+    <a><img></a>
+  </div>
+  </section>
+  <section id="four">
+    © 2020 TGUISS Art Club
+  </section>
+  <div id="intro">
+
+  </div>
+  <div id="images">
+    <img id="image1" class="hide">
+    <img id="image2" class="hide">
+    <img id="image3" class="hide">
+    <img id="image4" class="hide">
+    <img id="image5" class="hide">
+    <img id="image6" class="hide">
+    <img id="image7" class="hide">
+    <img id="image8" class="hide">
+    <img id="image9" class="hide">
+    <img id="image10" class="hide">
+    <img id="image11" class="hide">
+    <img id="image12" class="hide">
+    <img id="image13" class="hide">
+    <img id="image14" class="hide">
+    <img id="image15" class="hide">
+    <img id="image16" class="hide">
+    <img id="image17" class="hide">
+    <img id="image18" class="hide">
+    <img id="image19" class="hide">
+    <img id="image20" class="hide">
+    <img id="image21" class="hide">
+    <img id="image22" class="hide">
+    <img id="image23" class="hide">
+    <img id="image24" class="hide">
+    <img id="image25" class="hide">
+    <img id="image26" class="hide">
+    <img id="image27" class="hide">
+  </div>
+  <a href="#home" id="close" class="hide"></a>
+  <script src="index2.js" charset="utf-8"></script>
+</body>
+
+</html>
