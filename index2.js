@@ -7,11 +7,8 @@ var a = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25],
     csvfile.send(); // HTTPリクエストの発行
 	// csvファイルを読み込んだら処理を実行
 	csvfile.onload = function(){
-		convertCSV(csvfile.responseText);
-	}
-  function convertCSV(csvdata){
-	var resultdata = []; // データを入れるための配列
-    var tmp = csvdata.split("\n"); // 改行を基準にデータを行ごとで配列化
+	   var resultdata = [], // データを入れるための配列
+         tmp = csvfile.responseText.split("\n"); // 改行を基準にデータを行ごとで配列化
     // 各行ごとにカンマで区切った文字列の配列データを生成
     for(var i = 0; i < tmp.length; i++){
         var tmpROW = tmp[i].split(',');
@@ -22,6 +19,8 @@ var a = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25],
     // 格納し終えた配列データを元に出力処理
     console.log(resultdata);
 }
+
+document.innerHTML += resultdata;
 
 for (i = a.length - 1; i > 0; i--) {
   j = Math.floor(Math.random() * (i + 1));
