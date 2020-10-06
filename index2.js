@@ -1,4 +1,4 @@
-var a = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25],
+let a = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25],
     b = document.getElementById("thumbnails").children,
     j, x, i,
     resultdata = [], // データを入れるための配列
@@ -8,19 +8,18 @@ var a = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25],
     csvfile.send(); // HTTPリクエストの発行
 	// csvファイルを読み込んだら処理を実行
 	csvfile.onload = function(){
-	   var tmp = csvfile.responseText.split("\n"); // 改行を基準にデータを行ごとで配列化
+	   let tmp = csvfile.responseText.split("\n"); // 改行を基準にデータを行ごとで配列化
     // 各行ごとにカンマで区切った文字列の配列データを生成
-    for(var i = 0; i < tmp.length; i++){
-        var tmpROW = tmp[i].split(',');
+    for(let i = 0; i < tmp.length; i++){
+        let tmpROW = tmp[i].split(',');
         if( tmpROW !== '' ){
             resultdata[i] = tmp[i].split(',');
         }
     }
     // 格納し終えた配列データを元に出力処理
     console.log(resultdata);
-}
+  }
 
-console.log(resultdata);
 
 for (i = a.length - 1; i > 0; i--) {
   j = Math.floor(Math.random() * (i + 1));
@@ -28,14 +27,14 @@ for (i = a.length - 1; i > 0; i--) {
   a[i] = a[j];
   a[j] = x;
 }
-for (var i = 0; i < a.length; i++) {
+for (let i = 0; i < a.length; i++) {
     b[i].setAttribute("href","#image"+a[i]);
     document.getElementsByTagName("img")[i].setAttribute("src","thumbnail/"+a[i]+".jpg");
     document.getElementById("thumbnails").children[i].setAttribute("onclick","loadimage("+a[i]+","+(i+1)+")");
 }
 
 function scroll(){
-  var bottom = document.documentElement.scrollTop || document.body.scrollTop,
+  let bottom = document.documentElement.scrollTop || document.body.scrollTop,
       elementno2 = document.getElementById('two'),
       elementno3 = document.getElementById('three'),
       second = elementno2.offsetTop,
