@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <title>金木犀の陣</title>
-  <link href="https://fonts.googleapis.com/css?family=Sawarabi+Mincho" rel="stylesheet">
+
   <script id="text/javascript">
     window.onhashchange = function() {
       let hash = location.hash,
@@ -16,6 +16,7 @@
         document.getElementById(cs).classList.add("hide");
         document.getElementById('close').classList.remove("show");
         document.getElementById('close').classList.add("hide");
+        document.querySelector('a[href = "#' + cs + '"]').removeAttribute("class");
         document.querySelector('#description h2').textContent = null;
         document.querySelector('#description h1').textContent = null;
         document.querySelector('#description p').textContent = null;
@@ -25,7 +26,8 @@
         document.getElementById('close').classList.remove("hide");
         document.getElementById('close').classList.add("show");
         document.getElementById('images').classList.add(hash.substr(1));
-        document.querySelector('#description h2').textContent = resultdata[number][1] + "年　" + resultdata[number][0];
+        document.querySelector('a[href = "' + hash + '"]').setAttribute("class","selected");
+        document.querySelector('#description h2').textContent = resultdata[number][1] + "　" + resultdata[number][0];
         document.querySelector('#description h1').textContent = resultdata[number][2];
         document.querySelector('#description p').textContent = resultdata[number][3];
       }
