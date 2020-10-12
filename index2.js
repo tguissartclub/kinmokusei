@@ -28,8 +28,7 @@ for (i = a.length - 1; i > 0; i--) {
   a[j] = x;
 }
 for (let i = 0; i < a.length; i++) {
-    b[i].setAttribute("href","#image"+a[i]);
-    document.getElementsByTagName("img")[i].setAttribute("src","thumbnail/"+a[i]+".jpg");
+    document.getElementsByTagName("span")[i].style.backgroundImage = "url(thumbnail/"+a[i]+".jpg)";
     document.getElementById("thumbnails").children[i].setAttribute("onclick","loadimage("+a[i]+","+(i+1)+")");
 }
 
