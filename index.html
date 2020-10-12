@@ -12,31 +12,42 @@
       if (hash === "#home" || hash === "") {
         let cs = document.getElementById('images').className;
         document.getElementById('images').removeAttribute('class');
-        document.getElementById(cs).classList.remove("show");
-        document.getElementById(cs).classList.add("hide");
-        document.getElementById('close').classList.remove("show");
-        document.getElementById('close').classList.add("hide");
+        setTimeout(function () {
+          document.getElementById(cs).classList.remove("show");
+          document.getElementById(cs).classList.add("hide");
+        }, 300);
         document.querySelector('body').classList.remove("selected");
+        document.querySelector('body').classList.add("deselected");
         document.querySelector('#description h2').textContent = null;
         document.querySelector('#description h1').textContent = null;
         document.querySelector('#description p').textContent = null;
       } else {
         document.querySelector(hash).classList.remove("hide");
         document.querySelector(hash).classList.add("show")
-        document.getElementById('close').classList.remove("hide");
-        document.getElementById('close').classList.add("show");
         document.getElementById('images').classList.add(hash.substr(1));
         document.querySelector('body').classList.add("selected");
+        document.querySelector('body').classList.remove("deselected");
+        setTimeout(function () {
+          document.querySelector('body').classList.add("description");
+        }, 500);
         document.querySelector('#description h2').textContent = resultdata[number][1] + "　" + resultdata[number][0];
         document.querySelector('#description h1').textContent = resultdata[number][2];
         document.querySelector('#description p').textContent = resultdata[number][3];
       }
     };
 
+    function description() {
+      if (document.querySelector('body').className.includes("description")) {
+        document.querySelector('body').classList.remove("description");
+      }else {
+        document.querySelector('body').classList.add("description");
+      }
+    }
+
     function loadimage(number, number2) {
       document.getElementById('image' + number).setAttribute("src", "images/" + number + ".jpg");
-      console.log(document.getElementById("thumbnails").children[number2].href.slice(-2).replace('e', ''));
-      document.getElementById("thumbnails").children[number2 - 1].removeAttribute("onclick");
+      location.href = "#image"+number;
+      document.getElementById("thumbnails").children[number2 - 1].setAttribute("onclick","location.href = '#image"+number+"';");
       document.getElementById('image' + number).setAttribute("onload", "aspectratio(" + number + ")");
     }
 
@@ -59,40 +70,40 @@
   <link rel="stylesheet" href="index.css">
 </head>
 
-<body onscroll="scroll()">
+<body onscroll="scroll()" class="deselected">
   <section id="one">
   </section>
   <section id="two">
   </section>
   <section id="three">
     <div id="thumbnails">
-      <a><img></a>
-      <a><img></a>
-      <a><img></a>
-      <a><img></a>
-      <a><img></a>
-      <a><img></a>
-      <a><img></a>
-      <a><img></a>
-      <a><img></a>
-      <a><img></a>
-      <a><img></a>
-      <a><img></a>
-      <a><img></a>
-      <a><img></a>
-      <a><img></a>
-      <a><img></a>
-      <a><img></a>
-      <a><img></a>
-      <a><img></a>
-      <a><img></a>
-      <a><img></a>
-      <a><img></a>
-      <a><img></a>
-      <a><img></a>
-      <a><img></a>
-      <a><img></a>
-      <a><img></a>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
     </div>
   </section>
   <section id="four">
@@ -101,7 +112,8 @@
   <div id="intro">
 
   </div>
-  <div id="images">
+  <div id="image">
+    <div id="images">
     <img id="image1" class="hide">
     <img id="image2" class="hide">
     <img id="image3" class="hide">
@@ -135,7 +147,10 @@
     <h1>作品名</h1>
     <p>作品説明　親譲りの無鉄砲で小供の時から損ばかりしている。小学校に居る時分学校の二階から飛び降りて一週間ほど腰を抜かした事がある。なぜそんな無闇をしたと聞く人があるかも知れぬ。別段深い理由でもない。</p>
   </div>
-  <a href="#home" id="close" class="hide"></a>
+  <a href="#home" id="close"></a>
+  <div id="descri" onclick="description()">
+  </div>
+  </div>
   <script src="index2.js" charset="utf-8"></script>
 </body>
 
