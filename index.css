@@ -205,14 +205,10 @@ input[type="checkbox"] {
   position: absolute;
   overflow-y: auto;
 }
+
 ::-webkit-scrollbar {
-  display: none;
+  width:0;
 }
-
-::-webkit-scrollbar-thumb {
-  background: black;
-}
-
 
 #first {
   position: fixed;
