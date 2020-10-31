@@ -716,10 +716,13 @@ transition: opacity .3s, visibility 0s .3s;
 
 @media all and (orientation: landscape) {
   #images img,
-  .description #images img,
-  #description,
-  .description #description{
+  .description #images img {
     transition: width .3s;
+  }
+
+  #description,
+  .description #description {
+    transition: right .3s;
   }
 
   #images img, #description{
@@ -731,10 +734,10 @@ transition: opacity .3s, visibility 0s .3s;
     width: 60%;
   }
 
-  #description{
+  #description {
     height: 100vh;
-    width: 0%;
-    right: 0;
+    width: 40%;
+    right: -40%;
   }
 
   #description.kyodoimage {
@@ -751,7 +754,7 @@ transition: opacity .3s, visibility 0s .3s;
 
 
   .description #description{
-    width: 40%;
+    right: 0;
   }
 
   html {
@@ -852,10 +855,13 @@ transition: opacity .3s, visibility 0s .3s;
 
 @media all and (orientation: portrait) {
   #images img,
-  .description #images img,
-  #description,
-  .description #description{
+  .description #images img{
     transition: height .3s;
+  }
+
+  #description,
+  .description #description {
+    transition: bottom .3s;
   }
 
   #images img {
@@ -880,8 +886,8 @@ transition: opacity .3s, visibility 0s .3s;
 
   #description {
     width: 100%;
-    height: 0%;
-    bottom: 0;
+    height: 32.5vh;
+    bottom: -32.5vh;
     left: 0;
   }
 
@@ -890,7 +896,7 @@ transition: opacity .3s, visibility 0s .3s;
   }
 
   .description #description{
-    height: 32.5vh;
+    bottom: 0;
   }
 
   html {
