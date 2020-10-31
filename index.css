@@ -207,7 +207,8 @@ input[type="checkbox"] {
 }
 
 ::-webkit-scrollbar {
-  width:0;
+  width: 0;
+  display: none;
 }
 
 #first {
